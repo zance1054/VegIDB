@@ -3,7 +3,7 @@ var ObjectId = require('mongodb').ObjectID;
 
 var MongoUserName = "myUserName";
 var MongoPSWD = "myPswd";
-var url = "mongodb+srv://"+ MongoUserName +":" + MongoPSWD + "beautifulI8@veghubclusteralpha-bem9t.mongodb.net/test?retryWrites=true";
+var url = "mongodb+srv://"+ MongoUserName +":" + MongoPSWD + "@veghubclusteralpha-bem9t.mongodb.net/test?retryWrites=true";
 
 //prints out the first user in the data set
 function findFirst()
@@ -60,4 +60,15 @@ function getUserID(username,email)
       db.close();
     });
   });
+}
+
+
+function main()
+{
+
+  username = "Rob Stark";
+  email = "theyoungwolf@gmail.com";
+  getUserID(username,email);
+
+
 }

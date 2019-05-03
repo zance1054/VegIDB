@@ -63,9 +63,58 @@ function newPlant(name, filename)
   });
 }
 
+function updatePlantImage(name, plantImage)
+{
+  MongoClient.connect(url,{ useNewUrlParser: true },function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("veg_users");
+    var myquery = { "plantName": name }; //find the user we need to update doesnt need .str
+    var newvalues = { $set: {"image": newEmail } };
+    dbo.collection("users").updateOne(myquery, newvalues, function(err, res) {
+      if (err) throw err;
+      console.log("Email Updated");
+      db.close();
+    });
+  });
+}
+
+function encodeImage()
+{
+
+}
+
+function decodeImage()
+{
+
+}
+
+function getPlantImage(plant)
+{
+  MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("veg_users");
+  dbo.collection("plants").findOne({"plantName":plant}, function(err, result) {
+    if (err) throw err;
+
+    //decode image String
+    var img = decodeImage(result.image);
+
+    console.log(img);
+
+    return result._id.valueOf;
+    db.close();
+  });
+});
+}
+
 function main()
 {
-  newPlant("whiterose","whiterose.jpg");
+
+
+  updatePlantImage("orchid", plantImage);
+  getPlantImage("orchid");
+
+
 }
 
 main()
