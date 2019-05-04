@@ -1,12 +1,12 @@
-import mongoose, { Schema } from 'mongoose';
+const mongoose = require("mongoose");
 
 // Define plant schema
-var plantSchema = new Schema({
+const plantSchema = new mongoose.Schema({
   plantName: String,
+  plantID: String,
   plantFileName: String,
-  img: ,
   plantDescription: String,
 });
 
 // Export Mongoose model
-export default mongoose.model('plants', plantSchema);
+module.export = mongoose.model('plants', plantSchema);

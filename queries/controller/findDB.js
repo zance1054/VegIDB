@@ -1,9 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
+var url = require('./utils/url').url;
 
-var MongoUserName = "myUserName";
-var MongoPSWD = "myPswd";
-var url = "mongodb+srv://"+ MongoUserName +":" + MongoPSWD + "@veghubclusteralpha-bem9t.mongodb.net/test?retryWrites=true";
 
 //prints out the first user in the data set
 function findFirst()

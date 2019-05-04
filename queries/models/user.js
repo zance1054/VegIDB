@@ -1,11 +1,12 @@
-import mongoose, { Schema } from 'mongoose';
+const mongoose = require("mongoose");
 
 // Define plant schema
-var userSchema = new Schema({
+var userSchema = new mongoose.Schema({
   name: String,
   email: String,
-  password: ,
+  userID: String,
+  password: String,
 });
 
 // Export Mongoose model
-export default mongoose.model('users', userSchema);
+module.export = mongoose.model('user', userSchema);
